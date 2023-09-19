@@ -2,11 +2,11 @@ const express = require('express');
 
 const router = express.Router()
 
+//controllers
+const dashboardControllers = require('./../../controllers/dashboardControllers');
 
-router.get('/',(req,res)=>{
-   
-    res.render('dashboard',{pageTitle:'dashboard',path:'/dashboard',layout:'./layouts/dashLayout'})
-})
+
+router.get('/',dashboardControllers.getDashboard)
 
 
 
