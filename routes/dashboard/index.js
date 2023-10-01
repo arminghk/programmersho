@@ -6,7 +6,10 @@ const router = express.Router()
 const dashboardControllers = require('./../../controllers/dashboardControllers');
 
 
-router.get('/',dashboardControllers.getDashboard)
+const auth = require('./../../middlewares/auth');
+
+
+router.get('/',auth,dashboardControllers.getDashboard)
 
 
 

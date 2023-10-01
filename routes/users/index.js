@@ -10,8 +10,12 @@ const userControllers = require('./../../controllers/userControllers');
 const inputValidator = require('../../validators')
 const schema = require('../../validators/schemas')
 
+//auth
+const auth = require('./../../middlewares/auth');
+
 router.get('/login', userControllers.getLogin)
-router.post('/login', userControllers.postLogin)
+router.post('/login', userControllers.postLogin ,userControllers.rememberMe)
+router.get('/logout',auth, userControllers.logout)
 
 router.get('/register',userControllers.getRegister )
 router.post('/register', inputValidator(schema.usercreate, 'body'), userControllers.postRegister)

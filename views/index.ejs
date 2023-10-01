@@ -16,6 +16,7 @@
                 </a>
 
             </div>
+            
             <div class="contact-us">
                 <span>09195851994</span>
                 <i class="fa fa-phone" aria-hidden="true"></i>
@@ -28,7 +29,6 @@
                 <input type="checkbox" name="" id="">
 
                 <ul class="menu-items">
-                    <li><a href="users/login"> ورود | ثبت نام</a></li>
                     <li><a href="#">تماس با ما</a></li>
                     <li><a href="#">درباره ما</a></li>
                     <li><a href="#">دوره ها</a></li>
@@ -39,7 +39,18 @@
                     <span class="line line2"></span>
                     <span class="line line3"></span>
                 </div>
-                <h1 class="logo">Navbar</h1>
+                <div>
+                    <% if (req.isAuthenticated()) { %>
+                        <button><a href="/dashboard">حساب کاربری</a></button>
+                        <button> <a href="/users/logout">خروج</a></button>
+                       
+                    <% }else{ %>
+                        <button><a href="/users/register">ثبت نام</a></button>
+                        <button> <a href="/users/login">ورود</a></button>
+
+                        <%}%>
+                </div>
+                
             </div>
         </nav>
 

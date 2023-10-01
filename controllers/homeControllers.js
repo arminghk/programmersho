@@ -6,7 +6,8 @@ class homeControllers {
     }
 
     getHome(req,res){
-        res.render('index.ejs',{pageTitle:'Programmersho',path:'/'})
+        console.log('req.user---->',req.user);
+        res.render('index.ejs',{pageTitle:'Programmersho',path:'/',req})
     
     }
     

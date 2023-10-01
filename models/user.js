@@ -1,5 +1,7 @@
 const mongoose = require('mongoose'); // Erase if already required
 
+const bcrypt = require('bcrypt');
+
 // Declare the Schema of the Mongo model
 var userSchema = new mongoose.Schema({
     username:{
@@ -28,6 +30,14 @@ var userSchema = new mongoose.Schema({
     updatedAt:{
         type:Date  
     }
+});
+
+userSchema.pre('save', async function(next) { // this line
+    const user = this;
+    if (!user.isModified('password')) return next();
+    user.password = await bcrypt.hash(user.password, 8);
+    console.log('just before saving...');
+    next();
 });
 
 //Export the model

@@ -1,15 +1,23 @@
 
 
 class dashboardControllers {
-    constructor(){
-       
+    constructor() {
+
     }
 
-    getDashboard(req,res){
-        res.render('dashboard',{pageTitle:'dashboard',path:'/dashboard',layout:'./layouts/dashLayout'})
+    getDashboard(req, res) {
+       
+        res.render('dashboard.ejs' ,
+        {
+            pageTitle: 'dashboard',
+            path: '/dashboard',
+            layout: './layouts/dashLayout',
+            user: req.user
+        }
+        )
     }
-    
-   
+
+
 
 }
 
