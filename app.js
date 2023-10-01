@@ -10,6 +10,7 @@ var flash = require('connect-flash');
 const mongoose= require('mongoose');
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
+const debug = require('debug')('programmersho');
 
 
 const weblogRoutes = require('./routes/weblogRoutes');
@@ -18,6 +19,7 @@ require('dotenv').config({ path: './config/config.env' })
 //database
 const connectDB = require('./config/db');
 connectDB()
+debug('connected to database')
 
 const app = express()
 
