@@ -3,18 +3,17 @@ const express = require('express');
 const router = express.Router()
 
 const homeRoutes = require('./home');
-const usersRoutes = require('./users');
-const dashRoutes = require('./dashboard');
+const adminRoutes = require('./admin');
+
 
 
 router.use('/',homeRoutes)
 
 
-router.use('/users',usersRoutes)
+router.use('/admin',adminRoutes)
 
 
 
-router.use('/dashboard',dashRoutes)
 
 
 

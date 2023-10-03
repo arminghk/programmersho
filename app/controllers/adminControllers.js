@@ -1,12 +1,10 @@
 
 
-class dashboardControllers {
-    constructor() {
-
-    }
+class adminControllers  {
+  
 
     getDashboard(req, res) {
-       
+      
         res.render('dashboard.ejs' ,
         {
             pageTitle: 'dashboard',
@@ -23,4 +21,4 @@ class dashboardControllers {
 
 
 
-module.exports = new dashboardControllers()
+module.exports = new adminControllers()

@@ -23,6 +23,11 @@ var userSchema = new mongoose.Schema({
         type:Number,
         required:true,
     },
+    status:{
+        type:String,
+        enum:['admin','user'],
+        default:'user'
+    },
     createdAt:{
         type:Date,
         default:Date.now

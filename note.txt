@@ -1,0 +1,13 @@
+ DEBUG=programmersho nodemon 
+
+
+
+ <!-- <% if (req.isAuthenticated()) { %>
+                        <button><a href="/dashboard">حساب کاربری</a></button>
+                        <button> <a href="/users/logout">خروج</a></button>
+                       
+                    <% }else{ %> -->
+                        <button><a href="/users/register">ثبت نام</a></button>
+                        <button> <a href="/users/login">ورود</a></button>
+
+                        <!-- <%}%> -->

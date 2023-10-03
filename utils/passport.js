@@ -1,7 +1,7 @@
 const passport = require('passport');
 const {Strategy}=require('passport-local');
 const bcrypt = require('bcrypt'); 
-const User = require('./../models/user');
+const User = require('./../app/models/user');
 
 
 passport.use(new Strategy({usernameField:'email'},async (email,password,done)=>{
