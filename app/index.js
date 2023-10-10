@@ -37,8 +37,7 @@ module.exports = class Application {
         debug('connected to database')
     }
     setConfig() {
-        //static folder
-        console.log(path.join(__dirname, 'public'))
+      
         app.use(express.static(path.join(__dirname, 'public')))
         app.use(express.urlencoded({ extended: false }));
 
@@ -79,10 +78,10 @@ module.exports = class Application {
     }
     setRouters(){
         app.use(require('./../app/routes/web'))
-        app.use((req, res) => {
-            res.render('404', { pageTitle: '404', path: '/404' })
-        })
-        app.use(handle404Error)
+        // app.use((req, res) => {
+        //     res.render('404', { pageTitle: '404', path: '/404' })
+        // })
+        // app.use(handle404Error)
         // app.use(handleUnexpectedServerErrors)
     }
 }

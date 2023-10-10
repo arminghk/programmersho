@@ -3,8 +3,8 @@ const Controller = require('./Controller');
 class homeControllers extends Controller {
    
     index(req,res){
-        res.render('index.ejs',{pageTitle:'programmersho',path:'/'})
-       
+        
+        res.render('home/index.ejs')
     
     }
 
