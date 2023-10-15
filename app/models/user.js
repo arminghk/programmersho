@@ -20,7 +20,7 @@ var userSchema = new mongoose.Schema({
         minLength:6
     },
     mobile:{
-        type:Number,
+        type:String,
         required:true,
     },
     status:{

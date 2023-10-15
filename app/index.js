@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const handle404Error = require('./../errors/handle404Error')
 const handleUnexpectedServerErrors = require('./../errors/handleUnexpectedServerErrors')
 const passport = require('passport');
-require('./../utils/passport');
+
 const path = require('path');
 var flash = require('connect-flash');
 const mongoose = require('mongoose');
@@ -37,7 +37,7 @@ module.exports = class Application {
         debug('connected to database')
     }
     setConfig() {
-      
+        require('./../utils/passport');
         app.use(express.static(path.join(__dirname, 'public')))
         app.use(express.urlencoded({ extended: false }));
 
@@ -46,7 +46,7 @@ module.exports = class Application {
             secret: 'crackalackin',
             resave: false,
             saveUninitialized: false,
-            store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/programmersho' })
+            store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
         }));
         app.use(flash());
 

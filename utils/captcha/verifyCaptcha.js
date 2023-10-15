@@ -11,7 +11,7 @@ const verifyCaptcha = async (req, res, next) => {
     if (req.body.captcha == undefined && !captchaIsMandatory) {
       return next()
     }
-
+    req.body.captcha='test'
     const params = {
       secret: config.captchaSecretKey,
       response: req.body.captcha,
@@ -23,7 +23,7 @@ const verifyCaptcha = async (req, res, next) => {
       .join('&')
 
    
-
+    
     const verifyURL = `${config.captchaVerifyURL}${query}`
     const { data: result } = await axios.get(verifyURL)
  

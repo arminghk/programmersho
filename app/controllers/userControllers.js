@@ -6,8 +6,8 @@ class UserControllers {
 
    }
 
-   getLogin(req, res) {
-      res.render('login.ejs', { pageTitle: 'login page', path: '/login' })
+   getLogin(req, res) {      res.render('users/login.ejs', { pageTitle: 'login page', path: '/login' ,messages:'',user:req.user})
+
    }
    postLogin(req, res, next) {
 
@@ -27,14 +27,16 @@ class UserControllers {
       } else {
          req.session.cookie.expire = null
       }
-      res.redirect('/dashboard')
+      res.redirect('/')
    }
    getRegister(req, res) {
-      res.render('register.ejs', { pageTitle: 'register page', path: '/register' })
+      res.render('users/register.ejs', { pageTitle: 'register page', path: '/register',messages:'',user:req.user })
    }
    async postRegister(req, res, next) {
       try {
          const user = await User.findOne({ email: req.body.email })
+         
+         console.log('req.body--->',req.body);
 
          if (!user) {
             await User.create(req.body)
